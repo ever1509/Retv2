@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{637C3939-FD2B-4650-8E61-AE05C62B3C9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Retv2.Domain</RootNamespace>
+    <AssemblyName>Retv2.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\Contracts\IBusinessObject.cs" />
+    <Compile Include="BusinessLayer\Contracts\IRestaurantBusinessObject.cs" />
+    <Compile Include="BusinessLayer\RestaurantBusinessObject.cs" />
+    <Compile Include="DataLayer\Configurations\CategoryConfiguration.cs" />
+    <Compile Include="DataLayer\Configurations\FoodMenuConfiguration.cs" />
+    <Compile Include="DataLayer\Configurations\OrderConfiguration.cs" />
+    <Compile Include="DataLayer\Configurations\SaleControlConfiguration.cs" />
+    <Compile Include="DataLayer\Configurations\UserConfiguration.cs" />
+    <Compile Include="DataLayer\Configurations\UserTypeConfiguration.cs" />
+    <Compile Include="DataLayer\Contracts\ICategoryRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IFoodMenuRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IOrderRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IRepository.cs" />
+    <Compile Include="DataLayer\Contracts\ISaleControlRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IUnitOfWork.cs" />
+    <Compile Include="DataLayer\Contracts\IUserRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IUserTypeRepository.cs" />
+    <Compile Include="DataLayer\Repositories\CategoryRepository.cs" />
+    <Compile Include="DataLayer\Repositories\FoodMenuRepository.cs" />
+    <Compile Include="DataLayer\Repositories\OrderRepository.cs" />
+    <Compile Include="DataLayer\Repositories\Repository.cs" />
+    <Compile Include="DataLayer\Repositories\SaleControlRepository.cs" />
+    <Compile Include="DataLayer\Repositories\UserRepository.cs" />
+    <Compile Include="DataLayer\Repositories\UserTypeRepository.cs" />
+    <Compile Include="DataLayer\RestaurantDbContext.cs" />
+    <Compile Include="DataLayer\UnitOfWork.cs" />
+    <Compile Include="EntityLayer\Category.cs" />
+    <Compile Include="EntityLayer\FoodMenu.cs" />
+    <Compile Include="EntityLayer\Order.cs" />
+    <Compile Include="EntityLayer\SaleControl.cs" />
+    <Compile Include="EntityLayer\User.cs" />
+    <Compile Include="EntityLayer\UserType.cs" />
+    <Compile Include="Migrations\201611050409382_InitModelRetv2.cs" />
+    <Compile Include="Migrations\201611050409382_InitModelRetv2.Designer.cs">
+      <DependentUpon>201611050409382_InitModelRetv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611052107143_AddCategoryData.cs" />
+    <Compile Include="Migrations\201611052107143_AddCategoryData.Designer.cs">
+      <DependentUpon>201611052107143_AddCategoryData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611052122377_AddUserTypeData.cs" />
+    <Compile Include="Migrations\201611052122377_AddUserTypeData.Designer.cs">
+      <DependentUpon>201611052122377_AddUserTypeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611050409382_InitModelRetv2.resx">
+      <DependentUpon>201611050409382_InitModelRetv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611052107143_AddCategoryData.resx">
+      <DependentUpon>201611052107143_AddCategoryData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611052122377_AddUserTypeData.resx">
+      <DependentUpon>201611052122377_AddUserTypeData.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
